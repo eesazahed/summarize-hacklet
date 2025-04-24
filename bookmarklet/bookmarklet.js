@@ -1,4 +1,7 @@
 javascript: (() => {
+  const CSS_URL = "https://cdn.jsdelivr.net/gh/eesazahed/summarize-hacklet@latest/bookmarklet/popup.min.css";
+  const API_URL = "https://summarize-hacklet.vercel.app/api";
+
   const showPopup = (content) => {
     const existing = document.querySelector(".summary-popup");
     if (existing) existing.remove();
@@ -7,11 +10,10 @@ javascript: (() => {
     popup.className = "summary-popup";
     popup.innerHTML = `<div class="summary-inner">${content}<button class="summary-close">&times;</button></div>`;
 
-    if (!document.querySelector('link[href*="popup.css"]')) {
+    if (!document.querySelector(`link[href="${CSS_URL}"]`)) {
       const styleLink = document.createElement("link");
       styleLink.rel = "stylesheet";
-      styleLink.href =
-        "https://cdn.jsdelivr.net/gh/eesazahed/summarize-hacklet@main/bookmarklet/popup.min.css";
+      styleLink.href = CSS_URL;
       document.head.appendChild(styleLink);
     }
 
@@ -43,7 +45,7 @@ javascript: (() => {
 
   showPopup("Generating summary...");
 
-  fetch("https://summarize-hacklet.vercel.app/api", {
+  fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
