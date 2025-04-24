@@ -8,7 +8,4 @@ When the bookmark is clicked, a JavaScript function sends an API request to a Py
 
 Demo:
 
-<video width="640" height="360" controls>
-  <source src="https://raw.githubusercontent.com/eesazahed/summarize-hacklet/refs/heads/main/assets/demo.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![image](https://raw.githubusercontent.com/eesazahed/summarize-hacklet/refs/heads/main/assets/demo.gif)
