@@ -8,9 +8,9 @@ javascript: (() => {
 
     const popup = document.createElement("div");
     popup.className = "summary-popup";
-    popup.innerHTML = `<div class="summary-inner">${content}<button class="summary-close">&times;</button></div>`;
+    popup.innerHTML = "<div class='summary-inner'>" + content + "<button class='summary-close'>&times;</button></div>";
 
-    if (!document.querySelector(`link[href="${CSS_URL}"]`)) {
+    if (!document.querySelector("link[href='" + CSS_URL + "']")) {
       const styleLink = document.createElement("link");
       styleLink.rel = "stylesheet";
       styleLink.href = CSS_URL;
@@ -60,9 +60,9 @@ javascript: (() => {
       }
 
       const htmlSummary = markdown(data.summary);
-      showPopup(`<div class="popup-content">${htmlSummary}</div>`);
+      showPopup("<div class='popup-content'>" + htmlSummary + "</div>");
     })
     .catch((error) => {
-      showPopup(`Error: ${error}`);
+      showPopup("Error: " + error);
     });
 })();
