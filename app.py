@@ -10,10 +10,10 @@ API_URL = "https://ai.hackclub.com/chat/completions"
 @app.route("/")
 def home():
     return {
-        "message": "hello world"
+        "message": "check out https://github.com/eesazahed/summarize-hacklet"
     }
 
-@app.route("/summarize", methods=["POST"])
+@app.route("/api", methods=["POST"])
 def summarize():
     data = request.get_json()
     if not data["text"]:
