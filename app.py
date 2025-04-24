@@ -9,7 +9,7 @@ API_URL = "https://ai.hackclub.com/chat/completions"
 
 @app.route("/")
 def home():
-    return "<p>check out <a href='https://github.com/eesazahed/summarize-hacklet'>github.com/eesazahed/summarize-hacklet</a></p>", 200
+    return "<div><video width='640' height='360' controls><source src='https://raw.githubusercontent.com/eesazahed/summarize-hacklet/refs/heads/main/assets/demo.mov' type='video/mp4'>Your browser does not support the video tag.</video><br /><br /><p>check out <a href='https://github.com/eesazahed/summarize-hacklet'>github.com/eesazahed/summarize-hacklet</a></p></div>", 200
 
 @app.route("/api", methods=["POST"])
 def summarize():
