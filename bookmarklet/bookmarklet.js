@@ -1,5 +1,5 @@
 javascript: (() => {
-  const CSS_URL = "https://cdn.jsdelivr.net/gh/eesazahed/summarize-hacklet@latest/bookmarklet/popup.min.css";
+  const CSS_URL = "https://raw.githubusercontent.com/eesazahed/summarize-hacklet/refs/heads/main/bookmarklet/popup.min.css";
   const API_URL = "https://summarize-hacklet.vercel.app/api";
 
   const showPopup = (content) => {
