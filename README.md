@@ -4,6 +4,10 @@ A bookmarklet is a small JavaScript program stored as a browser bookmark. When c
 
 This [bookmarklet](https://github.com/eesazahed/summarize-hacklet/blob/main/bookmarklet/bookmarklet.min.js) creates an AI-generated summary of the selected text when clicked.
 
+```bash
+javascript:(()=>{try{let e="https://cdn.jsdelivr.net/gh/eesazahed/summarize-hacklet@main/bookmarklet/popup.min.css",t=t=>{let r=document.querySelector(".summary-popup");r&&r.remove();let a=document.createElement("div");if(a.className="summary-popup",a.innerHTML="<div class='summary-inner'>"+t+"<button class='summary-close'>&times;</button></div>",!document.querySelector("link[href='"+e+"']")){let m=document.createElement("link");m.rel="stylesheet",m.href=e,document.head.appendChild(m)}a.querySelector(".summary-close").addEventListener("click",()=>{a.classList.add("fade-out"),setTimeout(()=>a.remove(),300)}),document.body.appendChild(a)},r=e=>e.replace(/^### (.*$)/gim,"<h3>$1</h3>").replace(/^## (.*$)/gim,"<h2>$1</h2>").replace(/^# (.*$)/gim,"<h1>$1</h1>").replace(/\*\*(.*?)\*\*/gim,"<strong>$1</strong>").replace(/\*(.*?)\*/gim,"<em>$1</em>").replace(/^- (.*$)/gim,"<ul><li>$1</li></ul>").replace(/\n/gim,"<br>"),a=window.getSelection().toString().trim();if(""===a){t("You need to select some text to summarize.");return}t("Generating summary..."),fetch("https://summarize-hacklet.vercel.app/api",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:a})}).then(e=>e.json()).then(e=>{if(!e.summary){t("No summary returned.");return}let a=r(e.summary);t("<div class='popup-content'>"+a+"</div>")}).catch(e=>{t("Error: "+e)})}catch{alert("Could not fetch API :(")}})();
+```
+
 When the bookmark is clicked, a JavaScript function sends an API request to a Python Flask server, which generates a summary with [ai.hackclub.com](https://ai.hackclub.com/).
 
 Demo:

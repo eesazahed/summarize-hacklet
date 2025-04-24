@@ -1,5 +1,6 @@
 javascript: (() => {
-  const CSS_URL = "https://raw.githubusercontent.com/eesazahed/summarize-hacklet/refs/heads/main/bookmarklet/popup.min.css";
+  try {
+  const CSS_URL = "https://cdn.jsdelivr.net/gh/eesazahed/summarize-hacklet@main/bookmarklet/popup.min.css";
   const API_URL = "https://summarize-hacklet.vercel.app/api";
 
   const showPopup = (content) => {
@@ -65,4 +66,7 @@ javascript: (() => {
     .catch((error) => {
       showPopup("Error: " + error);
     });
+  } catch {
+    alert("Could not fetch API :(")
+  }
 })();
