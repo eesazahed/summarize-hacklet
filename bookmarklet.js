@@ -8,88 +8,105 @@ javascript: (() => {
       const popup = document.createElement("div");
       popup.className = "summary-popup";
       popup.innerHTML = `
-            <div class="summary-inner">
-              ${content}
-              <button class="summary-close">&times;</button>
-            </div>
-          `;
+        <div class="summary-inner">
+          ${content}
+          <button class="summary-close">&times;</button>
+        </div>
+      `;
   
       const style = document.createElement("style");
       style.textContent = `
-            .summary-popup {
-              position: fixed;
-              bottom: 2rem;
-              right: 2rem;
-              max-width: 90%;
-              width: 22.5rem;
-              background: #fff;
-              border-radius: 1rem;
-              box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.12);
-              font-family: 'Segoe UI', Roboto, sans-serif;
-              font-size: 0.9375rem;
-              color: #333;
-              z-index: 99999;
-              overflow: hidden;
-              animation: fadeInUp 0.3s ease;
-            }
-      
-            .summary-inner {
-              padding: 1.25rem 1.5rem 1rem;
-              position: relative;
-              max-height: 25rem;
-              overflow-y: auto;
-            }
-      
-            .summary-inner h2 {
-              margin: 0 0 0.625rem;
-              font-size: 1.125rem;
-              color: #111;
-            }
-      
-            .popup-content {
-              line-height: 1.6;
-            }
-      
-            .summary-close {
-              position: absolute;
-              top: 0.75rem;
-              right: 0.75rem;
-              background: none;
-              border: none;
-              font-size: 1.25rem;
-              color: #888;
-              cursor: pointer;
-              transition: color 0.2s;
-            }
-      
-            .summary-close:hover {
-              color: #f43f5e;
-            }
-      
-            @keyframes fadeInUp {
-              from {
-                opacity: 0;
-                transform: translateY(1.25rem);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-      
-            @media (max-width: 30rem) {
-              .summary-popup {
-                bottom: 0.625rem;
-                right: 0.625rem;
-                left: 0.625rem;
-                width: auto;
-              }
-            }
-          `;
+        .summary-popup {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          max-width: 90%;
+          width: 22.5rem;
+          background: #fff;
+          border-radius: 1rem;
+          box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.12);
+          font-family: 'Segoe UI', Roboto, sans-serif;
+          font-size: 0.9375rem;
+          color: #333;
+          z-index: 99999;
+          overflow: hidden;
+          animation: fadeInUp 0.3s ease;
+        }
   
-      popup
-        .querySelector(".summary-close")
-        .addEventListener("click", () => popup.remove());
+        .summary-inner {
+          padding: 1.5rem;
+          position: relative;
+          max-height: 25rem;
+          overflow-y: auto;
+        }
+  
+        .summary-inner h2 {
+          margin: 0 0 0.625rem;
+          font-size: 1.125rem;
+          color: #111;
+        }
+  
+        .popup-content {
+          line-height: 1.6;
+        }
+  
+        .summary-close {
+          position: absolute;
+          top: 0.25rem;
+          right: 0.75rem;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: #888;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+  
+        .summary-close:hover {
+          color: #f43f5e;
+        }
+  
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(1.25rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+  
+        @keyframes fadeOutDown {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(1.25rem);
+          }
+        }
+  
+        .fade-out {
+          animation: fadeOutDown 0.3s ease forwards;
+        }
+  
+        @media (max-width: 30rem) {
+          .summary-popup {
+            bottom: 0.625rem;
+            right: 0.625rem;
+            left: 0.625rem;
+            width: auto;
+          }
+        }
+      `;
+  
+      popup.querySelector(".summary-close").addEventListener("click", () => {
+        popup.classList.add("fade-out");
+        setTimeout(() => popup.remove(), 300);
+      });
+  
       document.head.appendChild(style);
       document.body.appendChild(popup);
     };
