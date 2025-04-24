@@ -1,5 +1,7 @@
 # summarize-hacklet
 
+![]
+
 A bookmarklet is a small JavaScript program stored as a browser bookmark. When clicked, it runs code to modify a webpage, extract data, or perform quick actions.
 
 This [bookmarklet](https://github.com/eesazahed/summarize-hacklet/blob/main/bookmarklet/bookmarklet.js) creates an AI-generated summary of the selected text when clicked.
