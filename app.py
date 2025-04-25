@@ -38,7 +38,7 @@ def summarize():
     if not data or "text" not in data:
         return { "message": "error: no text provided" }, 500
     
-    prompt = f"Summarize the following text. Keep the summary concise, but ensure that it conveys all key information. Focus on delivering the most value in the shortest form while preserving important details. Use plain text formatting only, with exceptions for bold, italics, line breaks, and bullet points where applicable. Text to summarize: {data['text']}"
+    prompt = f"Summarize the following text. Keep the summary concise, but ensure that it conveys all key information. Focus on delivering the most value in the shortest form while preserving important details. Use plain text formatting only, with exceptions for bold, italics, line breaks, and bullet points (using a single dash followed by a space for bullets, no asterisks or numbers) where applicable. Text to summarize: {data['text']}"
 
     try:
         response = requests.post(
