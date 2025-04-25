@@ -64,6 +64,6 @@ javascript: (() => {
       showPopup("Error: " + error);
     });
   } catch {
-    alert("Could not fetch API :(")
+    alert("Could not fetch API")
   }
 })();
