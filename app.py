@@ -42,8 +42,8 @@ def summarize():
                 Summarize the following text. 
                 Keep the summary concise, but ensure that it conveys all key information. 
                 Focus on delivering the most value in the shortest form while preserving important details. 
-                Use plain text formatting only, with exceptions for bold, italics, line breaks, and bullet points 
-                (using an em dash followed by a space for bullets, with one line break above and two line breaks below for spacing) where applicable.
+                Use plain text formatting only, with exceptions for bold, italics, line breaks, and bullet points. No special characters that are not ASCII. 
+                (using a single dash followed by a space for bullets, with one line break above and two line breaks below for spacing) where applicable.
                 Ensure that no other forms of bullet points are used. Also ensure that no headings or attempted differing font sizes are used either.
                 Text to summarize: 
                 {data['text']}
