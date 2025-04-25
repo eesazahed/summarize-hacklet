@@ -28,13 +28,10 @@ javascript: (() => {
 
   const markdown = (text) => {
     return text
-      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
-      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-      .replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>")
-      .replace(/\*(.*?)\*/gim, "<em>$1</em>")
+      .replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>")
+      .replace(/\*(.*?)\*/gim, "<i>$1</i>")
       .replace(/^- (.*$)/gim, "<ul><li>$1</li></ul>")
-      .replace(/\n/gim, "<br>");
+      .replace(/\n/gim, "<br />");
   };
 
   const selection = window.getSelection().toString().trim();
