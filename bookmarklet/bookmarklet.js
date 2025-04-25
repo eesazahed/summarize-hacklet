@@ -30,7 +30,7 @@ javascript: (() => {
     return text
       .replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>")
       .replace(/\*(.*?)\*/gim, "<i>$1</i>")
-      .replace(/^* (.*$)/gim, "<ul><li>$1</li></ul>")
+      .replace(/^- (.*$)/gim, "<ul><li>$1</li></ul>")
       .replace(/\n/gim, "<br />");
   };
 
